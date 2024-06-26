@@ -3,7 +3,7 @@ import { assets } from "../../assets/assets";
 import "./main.css";
 import { Context } from "../../context/context";
 
-const main = () => {
+const Main = () => {
   const {
     onSent,
     recentPrompt,
@@ -13,6 +13,11 @@ const main = () => {
     setInput,
     input,
   } = useContext(Context);
+
+  const handleCardClick = (prompt) => {
+    setInput(prompt);
+    onSent(prompt);
+  };
 
   return (
     <div className="main">
@@ -30,20 +35,20 @@ const main = () => {
               <p>How can I help you today?</p>
             </div>
             <div className="cards">
-              <div className="card">
-                <p>Help me find YouTube videos to care for a specific plant</p>
+              <div className="card" onClick={() => handleCardClick("Help me find YouTube videos to learn and practice coding in efficient ways")}>
+                <p>Help me find YouTube videos to learn and practice coding in efficient ways...</p>
                 <img src={assets.youtube_icon} alt="" />
               </div>
-              <div className="card">
+              <div className="card" onClick={() => handleCardClick("Create Vibrant & playful image with lots of details")}>
                 <p>Create Vibrant & playful image with lots of details</p>
                 <img src={assets.message_icon} alt="" />
               </div>
-              <div className="card">
-                <p>Write code for a specific task, icluding edge cases</p>
+              <div className="card" onClick={() => handleCardClick("Write code for a specific task, including edge cases")}>
+                <p>Write code for a specific task, including edge cases</p>
                 <img src={assets.code_icon} alt="" />
               </div>
-              <div className="card last-card">
-                <p>Give me tips for how to grow my youtube channel</p>
+              <div className="card last-card" onClick={() => handleCardClick("Give me tips for how to grow my YouTube channel")}>
+                <p>Give me tips for how to grow my YouTube channel</p>
                 <img src={assets.compass_icon} alt="" />
               </div>
             </div>
@@ -75,12 +80,12 @@ const main = () => {
               onChange={(e) => setInput(e.target.value)}
               value={input}
               type="text"
-              placeholder="Enter a promt here"
+              placeholder="Enter a prompt here"
             />
             <div>
               <img src={assets.gallery_icon} alt="" />
               <img src={assets.mic_icon} alt="" />
-              {input?<img onClick={() => onSent()} src={assets.send_icon} alt="" />:null}
+              {input ? <img onClick={() => onSent()} src={assets.send_icon} alt="" /> : null}
             </div>
           </div>
           <p className="bottom-info">
@@ -93,4 +98,4 @@ const main = () => {
   );
 };
 
-export default main;
+export default Main;

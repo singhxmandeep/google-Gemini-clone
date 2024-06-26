@@ -187,11 +187,16 @@
         width: 20px;
     }
     .search-box{
+      margin-top: 10px;
         padding: 5px 10px
     }
 
     .search-box div{
         gap: 10px;
+    }
+
+    .last-card{
+      margin-bottom: 20px;
     }
 }
 

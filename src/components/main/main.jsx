@@ -42,7 +42,7 @@ const main = () => {
                 <p>Write code for a specific task, icluding edge cases</p>
                 <img src={assets.code_icon} alt="" />
               </div>
-              <div className="card">
+              <div className="card last-card">
                 <p>Give me tips for how to grow my youtube channel</p>
                 <img src={assets.compass_icon} alt="" />
               </div>
